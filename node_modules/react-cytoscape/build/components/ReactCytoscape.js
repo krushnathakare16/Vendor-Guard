@@ -1,0 +1,183 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _cytoscape = require('cytoscape');
+
+var _cytoscape2 = _interopRequireDefault(_cytoscape);
+
+var _cytoscapeCola = require('cytoscape-cola');
+
+var _cytoscapeCola2 = _interopRequireDefault(_cytoscapeCola);
+
+var _cytoscapeDagre = require('cytoscape-dagre');
+
+var _cytoscapeDagre2 = _interopRequireDefault(_cytoscapeDagre);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+_cytoscape2.default.use(_cytoscapeCola2.default);
+_cytoscape2.default.use(_cytoscapeDagre2.default);
+
+/** React cytoscape component
+ * props : style, elements, layout, cyRef,styleContainer, cytoscapeOptions
+ */
+
+var ReactCytoscape = function (_Component) {
+	_inherits(ReactCytoscape, _Component);
+
+	function ReactCytoscape() {
+		_classCallCheck(this, ReactCytoscape);
+
+		return _possibleConstructorReturn(this, (ReactCytoscape.__proto__ || Object.getPrototypeOf(ReactCytoscape)).apply(this, arguments));
+	}
+
+	_createClass(ReactCytoscape, [{
+		key: 'getCyID',
+		value: function getCyID() {
+			return this.props.containerID || 'cy';
+		}
+	}, {
+		key: 'getContainer',
+		value: function getContainer() {
+			var c = this.container;
+			// console.log("container", c);
+			return c;
+		}
+	}, {
+		key: 'defaultStyle',
+		value: function defaultStyle() {
+			return [{
+				selector: 'node',
+				css: {
+					'content': function content(ele) {
+						return ele.data('label') || ele.data('id');
+					},
+					'text-valign': 'center',
+					'text-halign': 'center'
+				}
+			}, {
+				selector: '$node > node',
+				css: {
+					'padding-top': '10px',
+					'padding-left': '10px',
+					'padding-bottom': '10px',
+					'padding-right': '10px',
+					'text-valign': 'top',
+					'text-halign': 'center',
+					'background-color': '#bbb'
+				}
+			}, {
+				selector: 'edge',
+				css: {
+					'target-arrow-shape': 'triangle'
+				}
+			}, {
+				selector: ':selected',
+				css: {
+					'background-color': 'black',
+					'line-color': 'black',
+					'target-arrow-color': 'black',
+					'source-arrow-color': 'black'
+				}
+			}];
+		}
+	}, {
+		key: 'style',
+		value: function style() {
+			return this.props.style || this.defaultStyle();
+		}
+	}, {
+		key: 'elements',
+		value: function elements() {
+			return this.props.elements || {};
+		}
+	}, {
+		key: 'layout',
+		value: function layout() {
+			return this.props.layout || { name: 'cola' };
+		}
+	}, {
+		key: 'cytoscapeOptions',
+		value: function cytoscapeOptions() {
+			return this.props.cytoscapeOptions || {};
+		}
+	}, {
+		key: 'build',
+		value: function build() {
+			var opts = Object.assign({
+				container: this.getContainer(),
+
+				boxSelectionEnabled: false,
+				autounselectify: true,
+
+				style: this.style(),
+				elements: this.elements(),
+				layout: this.layout()
+			}, this.cytoscapeOptions());
+
+			this.cy = (0, _cytoscape2.default)(opts);
+
+			if (this.props.cyRef) {
+				this.props.cyRef(this.cy);
+			}
+			return this.cy;
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			this.clean();
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.build();
+		}
+	}, {
+		key: 'componentDidUpdate',
+		value: function componentDidUpdate() {
+			this.clean();
+			this.build();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _this2 = this;
+
+			var style = this.props.styleContainer || {};
+			var styleContainer = Object.assign({ height: "100%", width: "100%", display: "block" }, style);
+			return _react2.default.createElement('div', { className: 'graph', id: this.getCyID(), ref: function ref(elt) {
+					_this2.container = elt;
+				}, style: styleContainer });
+		}
+	}, {
+		key: 'clean',
+		value: function clean() {
+			if (this.cy) {
+				this.cy.destroy();
+			}
+		}
+	}]);
+
+	return ReactCytoscape;
+}(_react.Component);
+
+exports.default = ReactCytoscape;

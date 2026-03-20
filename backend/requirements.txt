@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+httpx
+pandas
+numpy
+scikit-learn>=1.8.0
+joblib
+neo4j
+redis  # optional for caching
+celery # optional for background tasks
+pydantic
+pydantic-settings
+python-multipart
+transformers
+torch

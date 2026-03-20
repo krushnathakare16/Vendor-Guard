@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-cytoscape": "^1.0.6"
+  }
+}

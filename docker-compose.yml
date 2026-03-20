@@ -1,0 +1,38 @@
+
+
+services:
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/@Krushna37
+    volumes:
+      - neo4j_data:/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - neo4j
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app  # for development (hot reload)
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  neo4j_data:
