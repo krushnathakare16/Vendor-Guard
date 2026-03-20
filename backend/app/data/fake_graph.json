@@ -1,0 +1,344 @@
+{
+  "nodes": {
+    "V1014": {
+      "id": "V1014",
+      "name": "google",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S2636": {
+      "id": "S2636",
+      "name": "google Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "S2660": {
+      "id": "S2660",
+      "name": "Acquired Tech LLC",
+      "risk_score": 50.0,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V1648": {
+      "id": "V1648",
+      "name": "Google",
+      "risk_score": 27.0,
+      "tier": "low",
+      "vendor_type": "vendor"
+    },
+    "S7888": {
+      "id": "S7888",
+      "name": "Google Cloud Services",
+      "risk_score": 50.0,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V0675": {
+      "id": "V0675",
+      "name": "Test Vendor",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S3319": {
+      "id": "S3319",
+      "name": "Test Vendor Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V8661": {
+      "id": "V8661",
+      "name": "Acme Corporation",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S0267": {
+      "id": "S0267",
+      "name": "Acme Corporation Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V8994": {
+      "id": "V8994",
+      "name": "RealTime TRealTime Test Vendor",
+      "risk_score": 28.78,
+      "tier": "low",
+      "vendor_type": "vendor"
+    },
+    "S0494": {
+      "id": "S0494",
+      "name": "RealTime TRealTime Test Vendor Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V6882": {
+      "id": "V6882",
+      "name": "Acme",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S8924": {
+      "id": "S8924",
+      "name": "Acme Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V5129": {
+      "id": "V5129",
+      "name": "amazon",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S1976": {
+      "id": "S1976",
+      "name": "Amazon Web Services (AWS)",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "S2276": {
+      "id": "S2276",
+      "name": "Whole Foods Market",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "S1821": {
+      "id": "S1821",
+      "name": "Twitch Interactive",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V5822": {
+      "id": "V5822",
+      "name": "cognizent",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S7235": {
+      "id": "S7235",
+      "name": "cognizent Cloud Services",
+      "risk_score": 50,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V0001": {
+      "id": "V0001",
+      "name": "Acme Finance",
+      "risk_score": 45.2,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "V0002": {
+      "id": "V0002",
+      "name": "Amazon Web Services",
+      "risk_score": 15.1,
+      "tier": "low",
+      "vendor_type": "subvendor"
+    },
+    "V0003": {
+      "id": "V0003",
+      "name": "Stripe Payments",
+      "risk_score": 22.4,
+      "tier": "low",
+      "vendor_type": "subvendor"
+    },
+    "V0004": {
+      "id": "V0004",
+      "name": "Global Support Solutions",
+      "risk_score": 78.9,
+      "tier": "critical",
+      "vendor_type": "vendor"
+    },
+    "V0005": {
+      "id": "V0005",
+      "name": "Twilio SMS",
+      "risk_score": 28.5,
+      "tier": "low",
+      "vendor_type": "subvendor"
+    },
+    "V0006": {
+      "id": "V0006",
+      "name": "DarkMarket APIs",
+      "risk_score": 92.1,
+      "tier": "critical",
+      "vendor_type": "subvendor"
+    },
+    "V8966": {
+      "id": "V8966",
+      "name": "TestCorp",
+      "risk_score": 28.78,
+      "tier": "low",
+      "vendor_type": "vendor"
+    },
+    "S2910": {
+      "id": "S2910",
+      "name": "TestCorp Cloud Services",
+      "risk_score": 50.0,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    },
+    "V9862": {
+      "id": "V9862",
+      "name": "Barclays",
+      "risk_score": 41.0,
+      "tier": "medium",
+      "vendor_type": "vendor"
+    },
+    "S0240": {
+      "id": "S0240",
+      "name": "Barclays Cloud Services",
+      "risk_score": 50.0,
+      "tier": "medium",
+      "vendor_type": "subvendor"
+    }
+  },
+  "edges": [
+    {
+      "source": "V1014",
+      "target": "S2636",
+      "criticality": 0.8
+    },
+    {
+      "source": "V1014",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V1648",
+      "target": "S7888",
+      "criticality": 0.8
+    },
+    {
+      "source": "V1648",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V0675",
+      "target": "S3319",
+      "criticality": 0.8
+    },
+    {
+      "source": "V0675",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V8661",
+      "target": "S0267",
+      "criticality": 0.8
+    },
+    {
+      "source": "V8661",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V8994",
+      "target": "S0494",
+      "criticality": 0.8
+    },
+    {
+      "source": "V8994",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V6882",
+      "target": "S8924",
+      "criticality": 0.8
+    },
+    {
+      "source": "V6882",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V5129",
+      "target": "S1976",
+      "criticality": 0.8
+    },
+    {
+      "source": "V5129",
+      "target": "S2276",
+      "criticality": 0.8
+    },
+    {
+      "source": "V5129",
+      "target": "S1821",
+      "criticality": 0.8
+    },
+    {
+      "source": "V5822",
+      "target": "S7235",
+      "criticality": 0.8
+    },
+    {
+      "source": "V5822",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V0001",
+      "target": "V0002",
+      "criticality": 1.0
+    },
+    {
+      "source": "V0001",
+      "target": "V0003",
+      "criticality": 0.9
+    },
+    {
+      "source": "V0003",
+      "target": "V0002",
+      "criticality": 1.0
+    },
+    {
+      "source": "V0001",
+      "target": "V0004",
+      "criticality": 0.5
+    },
+    {
+      "source": "V0001",
+      "target": "V0005",
+      "criticality": 0.4
+    },
+    {
+      "source": "V0004",
+      "target": "V0006",
+      "criticality": 0.9
+    },
+    {
+      "source": "V8966",
+      "target": "S2910",
+      "criticality": 0.8
+    },
+    {
+      "source": "V8966",
+      "target": "S2660",
+      "criticality": 0.8
+    },
+    {
+      "source": "V9862",
+      "target": "S0240",
+      "criticality": 0.8
+    },
+    {
+      "source": "V9862",
+      "target": "S2660",
+      "criticality": 0.8
+    }
+  ]
+}

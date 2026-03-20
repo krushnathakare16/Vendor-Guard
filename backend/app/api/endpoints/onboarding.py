@@ -6,6 +6,7 @@ from app.services.data_sources import security_score, news_sentiment, financial,
 from app.services.graph_db import VendorGraph
 from app.services.predictor import RiskPredictor
 from app.models.schemas import VendorProfile
+from app.api.endpoints.ws import manager
 
 router = APIRouter()
 predictor = RiskPredictor()
@@ -41,6 +42,7 @@ async def seed_data():
     for s, t, c in deps:
         graph.add_dependency(s, t, c)
         
+    await manager.broadcast({"type": "graph_updated"})
     return {"message": "Ecosystem data successfully seeded!"}
 
 @router.post("/")
@@ -107,16 +109,19 @@ async def onboard_vendor(req: OnboardRequest):
     elapsed = round(time.time() - start_time, 1)
     
     # Step 4: Return profile
-    return {
+    profile = {
         "id": vendor_id,
         "name": req.vendor_name,
         "domain": domain,
-        "risk_score": round(risk_prob, 1),
+        "risk_score": round(float(risk_prob), 2),
         "risk_level": tier.upper(),
-        "security_score": security,
-        "financial_score": financial_health,
-        "news_sentiment": round(sentiment, 2),
-        "subcontractors": subs[:5],
+        "security_score": round(float(security), 2),
+        "financial_score": round(float(financial_health), 2),
+        "news_sentiment": round(float(sentiment), 2),
+        "subcontractors": [
+            {"id": f"S{int(hashlib.md5(s.encode()).hexdigest()[:8], 16) % 10000:04d}", "name": s, "risk_score": 50.00}
+            for s in subs[:5]
+        ],
         "onboarding_time_sec": elapsed,
         "data_sources": {
             "security": "Mozilla Observatory + SSL Labs + Basic Checks",
@@ -126,3 +131,7 @@ async def onboard_vendor(req: OnboardRequest):
         },
         "message": f"✅ {req.vendor_name} onboarded successfully in {elapsed} seconds"
     }
+    
+    await manager.broadcast({"type": "vendor_added", "vendor": profile})
+    await manager.broadcast({"type": "graph_updated"})
+    return profile

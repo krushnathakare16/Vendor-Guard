@@ -14,4 +14,4 @@ class RiskPredictor:
         # Build feature vector in correct order
         X = np.array([[vendor_data[f] for f in self.features]])
         prob = self.model.predict_proba(X)[0][1]  # probability of incident
-        return prob * 100  # return as percentage
+        return round(float(prob * 100), 2)  # return as percentage with 2 decimal precision
