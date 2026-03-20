@@ -19,6 +19,8 @@ torch
 
 using : pip install requirements.txt
 
+Activate : Virtual Environment using,  
+           venv\Scripts\activate  
 
 1)cd backend
 Run - uvicorn app.main:app --reload
